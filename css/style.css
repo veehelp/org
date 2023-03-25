@@ -1,0 +1,22 @@
+/* VT Cinema - CSS Document */
+
+body{
+	margin:0 auto;
+	background-color:#fff;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	background-color:#fff;
+	/*background-image: url(../images/dot-x.gif);*/
+}
+a { outline: none;}
+a:link { color:#fff; text-decoration:none; }   
+a:visited { color:#fff; text-decoration:none; }
+a:hover { color:#7cdff8; text-decoration:none; } 
+a:active { color: #fff; text-decoration:none;  } 
+
+#main-container { width:768px; height:565px; margin-left:auto; margin-right:auto; 
+background-repeat:no-repeat; }
+#logo-part { float:left; width:750px; height:40px; padding: 20px 0 0 18px; }
+#body-part { float:left; width:768px; height:370px; }
+#founder { float:left; width:142px; height:170px; padding: 75px 0 0 45px; }
+#text{ float:left; width:517px; height:149px; padding: 100px 0 0 20px; }
+#enter{ float:left; width:660px; height:50px; padding: 50px 88px 0 0px; text-align: right; }
